@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OO.Class.Aluno">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAIAAAACAAAAAAAAAAgUAAAAIAAAAAAAAAAAGAAAE=</HashCode>
+      <FileName>Class\Aluno.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Matriculas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="OO.Class.Aula">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAABAAAAAAAggQAAAAAAAAAAAAAAAAAAEBA=</HashCode>
+      <FileName>Class\Aula.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Matriculas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="OO.Class.Matricula">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACJABA=</HashCode>
+      <FileName>Class\Matricula.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Aluno" />
+      <Property Name="Aula" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
