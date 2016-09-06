@@ -43,9 +43,13 @@
   <ItemGroup>
     <Compile Include="Class\Aluno.cs" />
     <Compile Include="Class\Aula.cs" />
-    <Compile Include="Class\PedidoAltaCoesao.cs" />
-    <Compile Include="Class\PedidoBaixaCoesao.cs" />
+    <Compile Include="Class\SRP\CalculoDesconto.cs" />
+    <Compile Include="Class\SRP\ICalculoDesconto.cs" />
+    <Compile Include="Class\SRP\PedidoAltaCoesao.cs" />
+    <Compile Include="Class\SRP\PedidoBaixaCoesao.cs" />
     <Compile Include="Class\Matricula.cs" />
+    <Compile Include="Class\SRP\Cliente.cs" />
+    <Compile Include="Class\SRP\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

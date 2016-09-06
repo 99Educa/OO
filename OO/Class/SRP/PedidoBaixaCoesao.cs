@@ -1,11 +1,16 @@
 ﻿using System;
 
-namespace OO.Class
+namespace OO.Class.SRP
 {
+    /// <summary>
+    /// Esta classe Pedido possui baixa coesão, pois possui mais de 1 motivo para mudar:
+    /// - Se alterar alguma estratégia para cálculo de desconto;
+    /// - Se alterar alguma regra de negócio do Pedido;
+    /// </summary>
     public class PedidoBaixaCoesao
     {
-        public Cliente Cliente;
-        public bool EhOrcamento;
+        public Cliente Cliente { get; private set; }
+        public bool EhOrcamento { get; }
 
         public void CalcularDesconto()
         {
@@ -24,24 +29,14 @@ namespace OO.Class
             }
         }
 
-        public void AdicionarItem(Produto produto)
+        public void AdicionarItem(Produto produto, int quantidade)
         {
             // Regras para adicionar um item ao Pedido...
         }
 
-        public void ConverterEmPedido()
+        public void ConverterOrcamentoEmPedido()
         {
             // Regras para converter um orçamento em Pedido...
         }
-    }
-
-    public class Cliente
-    {
-        public string Nome;
-        public DateTime DataNascimento;
-    }
-
-    public class Produto
-    {
     }
 }
