@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Class\Aluno.cs" />
     <Compile Include="Class\Aula.cs" />
+    <Compile Include="Class\PessoaComEncapsulamento.cs" />
+    <Compile Include="Class\PessoaSemEncapsulamento.cs" />
     <Compile Include="Class\SRP\CalculoDesconto.cs" />
     <Compile Include="Class\SRP\ICalculoDesconto.cs" />
     <Compile Include="Class\SRP\PedidoAltaCoesao.cs" />
