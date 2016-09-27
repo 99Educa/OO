@@ -44,10 +44,10 @@
     <Compile Include="Class\Agregacao\Equipe.cs" />
     <Compile Include="Class\Agregacao\Jogador.cs" />
     <Compile Include="Class\Aluno.cs" />
-    <Compile Include="Class\Associacao\ItemOrcamento.cs" />
+    <Compile Include="Class\Composicao\ItemOrcamento.cs" />
     <Compile Include="Class\Aula.cs" />
     <Compile Include="Class\Associacao\Cliente.cs" />
-    <Compile Include="Class\Associacao\Orcamento.cs" />
+    <Compile Include="Class\Composicao\Orcamento.cs" />
     <Compile Include="Class\PessoaComEncapsulamento.cs" />
     <Compile Include="Class\PessoaSemEncapsulamento.cs" />
     <Compile Include="Class\SRP\CalculoDesconto.cs" />

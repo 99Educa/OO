@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using OO.Class.Associacao;
 
-namespace OO.Class.Associacao
+namespace OO.Class.Composicao
 {
     public class Orcamento
     {

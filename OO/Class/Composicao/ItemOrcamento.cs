@@ -1,4 +1,4 @@
-﻿namespace OO.Class.Associacao
+﻿namespace OO.Class.Composicao
 {
     internal class ItemOrcamento
     {
