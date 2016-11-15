@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace OO.Class
+namespace OO.Class.Encapsulamento
 {
     public class PessoaSemEncapsulamento
     {
-        public string Nome;
+        public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
     }
 }

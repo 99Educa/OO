@@ -1,14 +1,72 @@
-﻿using OO.Class;
+﻿using OO.Class.Associacoes;
+using OO.Class.Encapsulamento;
+using OO.Class.Heranca;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace OO
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            //TestarAssociacaoEComposicao();
+            //TestarAgregacao();
+            //TestarEncapsulamento();
+            TestarHeranca();
+            Console.ReadKey();            
+        }
+
+        private static void TestarAssociacaoEComposicao()
+        {
+            var cliente = new Cliente("João", "123", new DateTime(1980, 1, 1));
+            Console.WriteLine(string.Format("João, sem nenhum orçamento associado: {0}.", cliente.Orcamentos.Count));
+            Console.WriteLine("-------------------");
+
+            var orcamento = new Orcamento(cliente);
+
+            orcamento.AdicionarItem("Mouse", 1);
+            orcamento.AdicionarItem("Teclado", 2);
+            Console.WriteLine(string.Format("João, com 1 orçamento associado: {0}.", cliente.Orcamentos.Count));
+            Console.WriteLine("-------------------");
+
+            orcamento.Dispose();
+            orcamento = null;
+
+            Console.WriteLine("Orçamento e itens (composição) não existem mais. Mas o João continua existindo (associação).");
+            Console.WriteLine("-------------------");
+        }
+
+        private static void TestarAgregacao()
+        {
+            Console.WriteLine("-------------------");
+            Console.WriteLine("Teste de agregação - associação todo-parte fraca");
+
+            var neymar = new Jogador("Neymar Jr", 11);
+            var suarez = new Jogador("Luis Suárez", 9);
+            var messi = new Jogador("Lionel Messi", 10);
+            var barcelona = new Equipe("Futbol Club Barcelona");
+            barcelona.AdicionarJogador(neymar);
+            barcelona.AdicionarJogador(suarez);
+            barcelona.AdicionarJogador(messi);
+
+            Console.WriteLine("Barcelona é o todo. Os Jogadores são partes que compõe o todo.");
+            Console.WriteLine(barcelona);
+            Console.WriteLine("-------------------");
+
+            var cr7 = new Jogador("Cristiano Ronaldo", 7);
+            var bale = new Jogador("Gareth Bale", 11);
+            var benzema = new Jogador("Karim Benzema", 9);
+            var realMadrid = new Equipe("Real Madrid Club de Fútbol");
+            realMadrid.AdicionarJogador(cr7);
+            realMadrid.AdicionarJogador(bale);
+            realMadrid.AdicionarJogador(benzema);
+
+            Console.WriteLine("Real Madrid é o todo. Os Jogadores são partes que compõe o todo.");
+            Console.WriteLine(realMadrid);
+            Console.WriteLine("-------------------");
+        }
+
+        private static void TestarEncapsulamento()
         {
             var pessoa1 = new PessoaSemEncapsulamento();
             pessoa1.Nome = "A";
@@ -19,6 +77,8 @@ namespace OO
             Console.WriteLine(string.Concat("Nome: ", pessoa1.Nome));
             Console.WriteLine(string.Concat("Data de nascimento: ", pessoa1.DataNascimento));
             Console.WriteLine("-------------------");
+
+            ///////////////////////////////////////////
 
             var pessoa2 = new PessoaComEncapsulamento();
 
@@ -35,8 +95,6 @@ namespace OO
             }
 
             pessoa2.AtribuirNome("José");
-
-
             try
             {
                 pessoa2.AtribuirDataNascimento(DateTime.Now.AddDays(1));
@@ -51,9 +109,46 @@ namespace OO
             Console.WriteLine(string.Concat("Nome: ", pessoa2.Nome));
             Console.WriteLine(string.Concat("Data de nascimento: ", pessoa2.DataNascimento));
             Console.WriteLine("-------------------");
-
-            Console.ReadKey();
-            
         }
+
+        private static void TestarHeranca()
+        {
+            Console.WriteLine("-------------------");
+            Console.WriteLine("Exemplo Herança e Polimorfismo");
+            var contaPoupanca = new ContaPoupanca();
+            Console.WriteLine("Depositando 100,00 na conta poupança...");
+            contaPoupanca.Depositar(100);
+
+            try
+            {
+                Console.WriteLine("Tentando sacar 101,00...");
+                contaPoupanca.Sacar(101);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(string.Format("Saldo da conta poupança: {0}", contaPoupanca.ObterSaldo().ToString("N2")));
+            }
+
+            Console.WriteLine("Tentando sacar 100,00.");
+            contaPoupanca.Sacar(100);
+            Console.WriteLine(string.Format("Saldo da conta poupança: {0}", contaPoupanca.ObterSaldo().ToString("N2")));
+            Console.WriteLine("-------------------");
+
+            var contaCorrente = new ContaCorrente();
+            Console.WriteLine("Depositando 100,00 na conta corrente...");
+            contaCorrente.Depositar(100);
+            Console.WriteLine(string.Format("Saldo da conta corrente antes do limite: {0}", contaCorrente.ObterSaldo().ToString("N2")));
+
+            Console.WriteLine("Definindo limite de 50,00 na conta corrente...");
+            contaCorrente.DefinirLimite(50);
+            Console.WriteLine(string.Format("Saldo da conta corrente depois do limite: {0}", contaCorrente.ObterSaldo().ToString("N2")));
+
+            Console.WriteLine("Tentando sacar 101,00 da conta corrente...");
+            contaCorrente.Sacar(101);
+            Console.WriteLine(string.Format("Saldo da conta corrente depois do saque: {0}", contaCorrente.ObterSaldo().ToString("N2")));
+            Console.WriteLine("-------------------");
+        }
+
     }
 }

@@ -41,28 +41,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Agregacao\Equipe.cs" />
-    <Compile Include="Class\Agregacao\Jogador.cs" />
-    <Compile Include="Class\Aluno.cs" />
-    <Compile Include="Class\Composicao\ItemOrcamento.cs" />
-    <Compile Include="Class\Aula.cs" />
-    <Compile Include="Class\Associacao\Cliente.cs" />
-    <Compile Include="Class\Composicao\Orcamento.cs" />
-    <Compile Include="Class\PessoaComEncapsulamento.cs" />
-    <Compile Include="Class\PessoaSemEncapsulamento.cs" />
+    <Compile Include="Class\Associacoes\Equipe.cs" />
+    <Compile Include="Class\Associacoes\Jogador.cs" />
+    <Compile Include="Class\AGA\Aluno.cs" />
+    <Compile Include="Class\Associacoes\ItemOrcamento.cs" />
+    <Compile Include="Class\AGA\Aula.cs" />
+    <Compile Include="Class\Associacoes\Cliente.cs" />
+    <Compile Include="Class\Associacoes\Orcamento.cs" />
+    <Compile Include="Class\Encapsulamento\PessoaComEncapsulamento.cs" />
+    <Compile Include="Class\Encapsulamento\PessoaSemEncapsulamento.cs" />
+    <Compile Include="Class\HerancaPessoa\Cliente.cs" />
+    <Compile Include="Class\HerancaPessoa\Contador.cs" />
+    <Compile Include="Class\HerancaPessoa\Fornecedor.cs" />
+    <Compile Include="Class\HerancaPessoa\Funcionario.cs" />
+    <Compile Include="Class\HerancaPessoa\Pessoa.cs" />
+    <Compile Include="Class\Heranca\Conta.cs" />
+    <Compile Include="Class\Heranca\ContaCorrente.cs" />
+    <Compile Include="Class\Heranca\ContaPoupanca.cs" />
     <Compile Include="Class\SRP\CalculoDesconto.cs" />
     <Compile Include="Class\SRP\ICalculoDesconto.cs" />
     <Compile Include="Class\SRP\PedidoAltaCoesao.cs" />
     <Compile Include="Class\SRP\PedidoBaixaCoesao.cs" />
-    <Compile Include="Class\Matricula.cs" />
+    <Compile Include="Class\AGA\Matricula.cs" />
     <Compile Include="Class\SRP\Cliente.cs" />
     <Compile Include="Class\SRP\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Class\HerancaPessoa\cdHerancaPessoa.cd" />
     <None Include="Diagrams\Diagram1.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

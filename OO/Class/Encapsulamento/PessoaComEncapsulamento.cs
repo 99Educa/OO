@@ -1,14 +1,13 @@
 ﻿using System;
 
-namespace OO.Class
+namespace OO.Class.Encapsulamento
 {
     public class PessoaComEncapsulamento
     {
         private string _nome;
-        private DateTime _dataNascimento;
 
         public string Nome {  get { return _nome; } }
-        public DateTime DataNascimento { get { return _dataNascimento; } }
+        public DateTime DataNascimento { get; private set; }
 
         public void AtribuirNome(string nome)
         {
@@ -26,7 +25,7 @@ namespace OO.Class
             if (dataNascimento.Date.CompareTo(DateTime.Now.Date) > 0)
                 throw new ArgumentException("Data de nascimento não pode ser maior que a data atual.");
 
-            _dataNascimento = dataNascimento;
+            this.DataNascimento = dataNascimento;
         }
     }
 }

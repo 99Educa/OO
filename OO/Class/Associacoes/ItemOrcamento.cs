@@ -1,6 +1,6 @@
-﻿namespace OO.Class.Composicao
+﻿namespace OO.Class.Associacoes
 {
-    internal class ItemOrcamento
+    public class ItemOrcamento
     {
         private Orcamento _orcamento;
         private string _produto;
