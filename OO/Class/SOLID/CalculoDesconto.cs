@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OO.Class.SRP
+namespace OO.Class.SOLID
 {
     public class CalculoDesconto : ICalculoDesconto
     {
