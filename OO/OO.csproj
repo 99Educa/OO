@@ -58,13 +58,17 @@
     <Compile Include="Class\Heranca\Conta.cs" />
     <Compile Include="Class\Heranca\ContaCorrente.cs" />
     <Compile Include="Class\Heranca\ContaPoupanca.cs" />
-    <Compile Include="Class\SRP\CalculoDesconto.cs" />
-    <Compile Include="Class\SRP\ICalculoDesconto.cs" />
-    <Compile Include="Class\SRP\PedidoAltaCoesao.cs" />
-    <Compile Include="Class\SRP\PedidoBaixaCoesao.cs" />
+    <Compile Include="Class\SOLID\CalculoDesconto.cs" />
+    <Compile Include="Class\SOLID\OCP\CalculoDescontoAdulto.cs" />
+    <Compile Include="Class\SOLID\OCP\CalculoDescontoBase.cs" />
+    <Compile Include="Class\SOLID\ICalculoDesconto.cs" />
+    <Compile Include="Class\SOLID\OCP\CalculoDescontoMelhorIdade.cs" />
+    <Compile Include="Class\SOLID\OCP\CalculoDescontoMenorDeIdade.cs" />
+    <Compile Include="Class\SOLID\PedidoAltaCoesao.cs" />
+    <Compile Include="Class\SOLID\PedidoBaixaCoesao.cs" />
     <Compile Include="Class\AGA\Matricula.cs" />
-    <Compile Include="Class\SRP\Cliente.cs" />
-    <Compile Include="Class\SRP\Produto.cs" />
+    <Compile Include="Class\SOLID\Cliente.cs" />
+    <Compile Include="Class\SOLID\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

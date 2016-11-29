@@ -1,4 +1,4 @@
-﻿namespace OO.Class.SRP
+﻿namespace OO.Class.SOLID
 {
     /// <summary>
     /// A classe de Pedido agora está com alta coesão, pois possui apenas 1 motivo para mudar:

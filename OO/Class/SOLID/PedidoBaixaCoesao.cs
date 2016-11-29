@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OO.Class.SRP
+namespace OO.Class.SOLID
 {
     /// <summary>
     /// Esta classe Pedido possui baixa coesão, pois possui mais de 1 motivo para mudar:
