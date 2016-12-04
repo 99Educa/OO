@@ -2,6 +2,7 @@
 {
     public class Jogador
     {
+        // Associação simples
         private Equipe _equipe;
 
         public string Nome { get; private set; }

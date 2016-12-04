@@ -9,34 +9,46 @@ namespace OO
     {
         static void Main(string[] args)
         {
-            //TestarAssociacaoEComposicao();
-            //TestarAgregacao();
+            TestarAssociacaoAgregacaoComposicaoOrcamento();
+            TestarAssociacaoAgregacaoComposicaoEquipe();
             //TestarEncapsulamento();
-            TestarHeranca();
+            //TestarHeranca();
             Console.ReadKey();            
         }
 
-        private static void TestarAssociacaoEComposicao()
+        private static void TestarAssociacaoAgregacaoComposicaoOrcamento()
         {
             var cliente = new Cliente("João", "123", new DateTime(1980, 1, 1));
             Console.WriteLine(string.Format("João, sem nenhum orçamento associado: {0}.", cliente.Orcamentos.Count));
             Console.WriteLine("-------------------");
 
-            var orcamento = new Orcamento(cliente);
+            var dell = new Marca(1, "Dell");
+            var hp = new Marca(2, "HP");
 
-            orcamento.AdicionarItem("Mouse", 1);
-            orcamento.AdicionarItem("Teclado", 2);
+            var mouse = new Produto(1, "Mouse", 5, 10, dell);
+            var teclado = new Produto(2, "Teclado", 10, 20, hp);
+
+            var orcamento = new Orcamento(cliente);
+            orcamento.AdicionarItem(mouse, 2);
+            orcamento.AdicionarItem(teclado, 1);
             Console.WriteLine(string.Format("João, com 1 orçamento associado: {0}.", cliente.Orcamentos.Count));
+            Console.WriteLine("-------------------");
+
+            Console.WriteLine("Produtos:");
+            foreach (var item in orcamento.Itens)
+            {
+                Console.WriteLine(string.Format("Item {0}, valor {1}, marca {2}", item.Produto.Descricao, item.Preco, item.Produto.Marca.Descricao));
+            }
             Console.WriteLine("-------------------");
 
             orcamento.Dispose();
             orcamento = null;
 
-            Console.WriteLine("Orçamento e itens (composição) não existem mais. Mas o João continua existindo (associação).");
+            Console.WriteLine("Orçamento e itens (composição) não existem mais. Mas o João continua existindo (agregação).");
             Console.WriteLine("-------------------");
         }
 
-        private static void TestarAgregacao()
+        private static void TestarAssociacaoAgregacaoComposicaoEquipe()
         {
             Console.WriteLine("-------------------");
             Console.WriteLine("Teste de agregação - associação todo-parte fraca");
@@ -51,6 +63,14 @@ namespace OO
 
             Console.WriteLine("Barcelona é o todo. Os Jogadores são partes que compõe o todo.");
             Console.WriteLine(barcelona);
+
+            barcelona.Dispose();
+            Console.WriteLine("Dispose no Barcelona, que deixou de existir...");
+            Console.WriteLine("Mas os jogadores não:");
+            Console.WriteLine(neymar.Nome);
+            Console.WriteLine(suarez.Nome);
+            Console.WriteLine(messi.Nome);
+
             Console.WriteLine("-------------------");
 
             var cr7 = new Jogador("Cristiano Ronaldo", 7);
@@ -63,6 +83,13 @@ namespace OO
 
             Console.WriteLine("Real Madrid é o todo. Os Jogadores são partes que compõe o todo.");
             Console.WriteLine(realMadrid);
+
+            realMadrid.Dispose();
+            Console.WriteLine("Dispose no Real Madrid, que deixou de existir...");
+            Console.WriteLine("Mas os jogadores não:");
+            Console.WriteLine(cr7.Nome);
+            Console.WriteLine(bale.Nome);
+            Console.WriteLine(benzema.Nome);
             Console.WriteLine("-------------------");
         }
 

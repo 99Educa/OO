@@ -13,7 +13,7 @@ namespace OO.Class.Associacoes
             this.Cliente.AdicionarOrcamento(this);
         }
 
-        // Associação simples
+        // Agregação
         public Cliente Cliente { get; private set; }
 
         public DateTime Data { get; private set; }
@@ -22,7 +22,7 @@ namespace OO.Class.Associacoes
         // Composição
         public IList<ItemOrcamento> Itens { get; private set; }
 
-        public void AdicionarItem(string produto, int quantidade)
+        public void AdicionarItem(Produto produto, int quantidade)
         {
             /* Validações...
              * Ex.: 

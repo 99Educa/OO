@@ -9,8 +9,6 @@ namespace OO.Class.Associacoes
         public string Nome { get; private set; }
         public IList<Jogador> Jogadores { get; private set; }
 
-
-
         public Equipe(string nome)
         {
             this.Nome = nome;

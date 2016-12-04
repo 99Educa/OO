@@ -47,7 +47,9 @@
     <Compile Include="Class\Associacoes\ItemOrcamento.cs" />
     <Compile Include="Class\AGA\Aula.cs" />
     <Compile Include="Class\Associacoes\Cliente.cs" />
+    <Compile Include="Class\Associacoes\Marca.cs" />
     <Compile Include="Class\Associacoes\Orcamento.cs" />
+    <Compile Include="Class\Associacoes\Produto.cs" />
     <Compile Include="Class\Encapsulamento\PessoaComEncapsulamento.cs" />
     <Compile Include="Class\Encapsulamento\PessoaSemEncapsulamento.cs" />
     <Compile Include="Class\HerancaPessoa\Cliente.cs" />

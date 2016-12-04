@@ -1,35 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="OO.Class.Aluno">
-    <Position X="4" Y="2.5" Width="1.5" />
+  <Class Name="OO.Class.Associacoes.Produto">
+    <Position X="3.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAIAAAACAAAAAAAAAAgUAAAAIAAAAAAAAAAAGAAAE=</HashCode>
-      <FileName>Class\Aluno.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Matriculas" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="OO.Class.Aula">
-    <Position X="9.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAABAABAAAAAAAggQAAAAAAAAAAAAAAAAAAEBA=</HashCode>
-      <FileName>Class\Aula.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Matriculas" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="OO.Class.Matricula">
-    <Position X="6.75" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACJABA=</HashCode>
-      <FileName>Class\Matricula.cs</FileName>
+      <HashCode>AAACABAgAAABAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Class\Associacoes\Produto.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Aluno" />
-      <Property Name="Aula" />
+      <Property Name="Marca" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="OO.Class.Associacoes.Marca">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class\Associacoes\Marca.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OO.Class.Associacoes.Orcamento">
+    <Position X="3.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAEAAAAACAAAAAAAAAABAAAAAAQAABAAA=</HashCode>
+      <FileName>Class\Associacoes\Orcamento.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Itens" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OO.Class.Associacoes.ItemOrcamento">
+    <Position X="5.5" Y="5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ADAAAAAAAAAAAAAAAAIAAAAAAAAAAAAACAAUAAAAAAE=</HashCode>
+      <FileName>Class\Associacoes\ItemOrcamento.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
