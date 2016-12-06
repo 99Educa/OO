@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="OO.Class.Associacoes.Produto">
-    <Position X="3.75" Y="2.25" Width="1.5" />
+    <Position X="3.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACABAgAAABAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Class\Associacoes\Produto.cs</FileName>
@@ -11,31 +11,41 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="OO.Class.Associacoes.Marca">
-    <Position X="6.5" Y="2.5" Width="1.5" />
+    <Position X="6.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Class\Associacoes\Marca.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OO.Class.Associacoes.Orcamento">
-    <Position X="3.25" Y="5" Width="1.5" />
+    <Position X="5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAEAAAAACAAAAAAAAAABAAAAAAQAABAAA=</HashCode>
       <FileName>Class\Associacoes\Orcamento.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cliente" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Itens" />
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="OO.Class.Associacoes.ItemOrcamento">
-    <Position X="5.5" Y="5" Width="1.5" />
+    <Position X="7.75" Y="5.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>ADAAAAAAAAAAAAAAAAIAAAAAAAAAAAAACAAUAAAAAAE=</HashCode>
       <FileName>Class\Associacoes\ItemOrcamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OO.Class.Associacoes.Cliente">
+    <Position X="2" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAABAAAAIAAAAAAAAAAAGAAgA=</HashCode>
+      <FileName>Class\Associacoes\Cliente.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -5,22 +5,23 @@ namespace OO.Class.Associacoes
 {
     public class Orcamento : IDisposable
     {
+        public Guid Numero { get; private set; }
+        public DateTime Data { get; private set; }
+
+        // Agregação (1)
+        public Cliente Cliente { get; private set; }        
+
+        // Composição (1..N)
+        public IList<ItemOrcamento> Itens { get; private set; }
+
         public Orcamento(Cliente cliente)
         {
+            this.Numero = Guid.NewGuid();
             this.Itens = new List<ItemOrcamento>();
             this.Data = DateTime.Now;
             this.Cliente = cliente;
             this.Cliente.AdicionarOrcamento(this);
         }
-
-        // Agregação
-        public Cliente Cliente { get; private set; }
-
-        public DateTime Data { get; private set; }
-        public int Numero { get; private set; }
-
-        // Composição
-        public IList<ItemOrcamento> Itens { get; private set; }
 
         public void AdicionarItem(Produto produto, int quantidade)
         {
@@ -31,6 +32,18 @@ namespace OO.Class.Associacoes
              *  */
 
             Itens.Add(new ItemOrcamento(this, produto, quantidade));
+        }
+
+        public decimal CalcularValorTotal()
+        {
+            decimal valorTotal = 0;
+
+            foreach (var item in Itens)
+            {
+                valorTotal += item.Preco;
+            }
+
+            return valorTotal;
         }
 
         /// <summary>

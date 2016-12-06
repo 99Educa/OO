@@ -10,9 +10,6 @@ namespace OO
         static void Main(string[] args)
         {
             TestarAssociacaoAgregacaoComposicaoOrcamento();
-            TestarAssociacaoAgregacaoComposicaoEquipe();
-            //TestarEncapsulamento();
-            //TestarHeranca();
             Console.ReadKey();            
         }
 
