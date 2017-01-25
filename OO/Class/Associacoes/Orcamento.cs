@@ -8,8 +8,28 @@ namespace OO.Class.Associacoes
         public Guid Numero { get; private set; }
         public DateTime Data { get; private set; }
 
+        public bool EhPedido { get; private set; }
+        public DateTime? DataConversaoEmPedido { get; private set; }
+
+        public void ConverterEmPedido()
+        {
+            if (EhPedido)
+                throw new Exception("Este orçamento já foi convertido.");
+
+            DataConversaoEmPedido = DateTime.Now;
+            this.EhPedido = true;
+        }
+
         // Agregação (1)
-        public Cliente Cliente { get; private set; }        
+        public Cliente Cliente { get; private set; }
+
+        public void TrocarCliente(Cliente novoCliente)
+        {
+            if (EhPedido)
+                throw new Exception("Não é possível trocar o Cliente. Este orçamento já foi convertido em Pedido.");
+
+            Cliente = novoCliente;
+        }
 
         // Composição (1..N)
         public IList<ItemOrcamento> Itens { get; private set; }
@@ -34,16 +54,18 @@ namespace OO.Class.Associacoes
             Itens.Add(new ItemOrcamento(this, produto, quantidade));
         }
 
+        public decimal ValorTotal { get; private set; }
+
         public decimal CalcularValorTotal()
         {
-            decimal valorTotal = 0;
+            ValorTotal = 0;
 
             foreach (var item in Itens)
             {
-                valorTotal += item.Preco;
+                ValorTotal += item.Preco;
             }
 
-            return valorTotal;
+            return ValorTotal;
         }
 
         /// <summary>

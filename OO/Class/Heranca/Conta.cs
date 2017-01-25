@@ -7,6 +7,12 @@ namespace OO.Class.Heranca
         public DateTime DataAbertura { get; protected set; }
         protected decimal Saldo { get; set; }
 
+        public Conta(DateTime dataAbertura, decimal saldo)
+        {
+            this.DataAbertura = dataAbertura;
+            this.Saldo = saldo;
+        }
+
         public void Depositar(decimal valor)
         {
             Saldo += valor;

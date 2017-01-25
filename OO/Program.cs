@@ -9,8 +9,31 @@ namespace OO
     {
         static void Main(string[] args)
         {
-            TestarAssociacaoAgregacaoComposicaoOrcamento();
+            TestarHerancaEPolimorfismo();
             Console.ReadKey();            
+        }
+
+        private static void TentarTrocarClienteAposConverterOrcamentoEmPedido()
+        {
+
+            var joao = new Cliente("João", "123", new DateTime(1980, 1, 1));
+            var jose = new Cliente("José", "456", new DateTime(1980, 1, 1));
+
+            Console.WriteLine(string.Format("Criando o orçamento para o {0}.", joao.Nome));
+            var orcamento = new Orcamento(joao);
+
+            Console.WriteLine("Convertendo o orçamento em Pedido.");
+            orcamento.ConverterEmPedido();
+
+            try
+            {
+                Console.WriteLine(string.Format("Tentando trocar o Cliente para o {0}...", jose.Nome));
+                orcamento.TrocarCliente(jose);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         private static void TestarAssociacaoAgregacaoComposicaoOrcamento()
@@ -135,42 +158,76 @@ namespace OO
             Console.WriteLine("-------------------");
         }
 
-        private static void TestarHeranca()
+        private static void TestarHerancaEPolimorfismo()
         {
             Console.WriteLine("-------------------");
             Console.WriteLine("Exemplo Herança e Polimorfismo");
-            var contaPoupanca = new ContaPoupanca();
+            Console.WriteLine("-------------------");
+
+            Console.WriteLine("-------------------");
+            Console.WriteLine("Conta poupança");
+            var contaPoupanca = new ContaPoupanca(DateTime.Now, 100);
+
             Console.WriteLine("Depositando 100,00 na conta poupança...");
             contaPoupanca.Depositar(100);
 
+            Console.WriteLine("Saque de R$ 70,00.");
+            contaPoupanca.Sacar(70);
+
+            Console.WriteLine(string.Format("Novo saldo: {0}", contaPoupanca.ObterSaldo().ToString("###,##0.00")));
             try
             {
-                Console.WriteLine("Tentando sacar 101,00...");
-                contaPoupanca.Sacar(101);
+                Console.WriteLine("Tentando sacar 131,00...");
+                contaPoupanca.Sacar(131);
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException e)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(e.Message);
                 Console.WriteLine(string.Format("Saldo da conta poupança: {0}", contaPoupanca.ObterSaldo().ToString("N2")));
             }
-
-            Console.WriteLine("Tentando sacar 100,00.");
-            contaPoupanca.Sacar(100);
-            Console.WriteLine(string.Format("Saldo da conta poupança: {0}", contaPoupanca.ObterSaldo().ToString("N2")));
             Console.WriteLine("-------------------");
 
-            var contaCorrente = new ContaCorrente();
+            Console.WriteLine("-------------------");
+            Console.WriteLine("Conta corrente sem limite");
+
+            var ccSemLimite = new ContaCorrente(DateTime.Now, 0);
             Console.WriteLine("Depositando 100,00 na conta corrente...");
-            contaCorrente.Depositar(100);
-            Console.WriteLine(string.Format("Saldo da conta corrente antes do limite: {0}", contaCorrente.ObterSaldo().ToString("N2")));
+            ccSemLimite.Depositar(100);
+
+            Console.WriteLine("Saque de R$ 50,00");
+            ccSemLimite.Sacar(50);
+
+            Console.WriteLine(string.Format("Saldo: {0}", ccSemLimite.ObterSaldo().ToString("N2")));
+
+            try
+            {
+                Console.WriteLine("Tentando sacar mais R$ 51,00 da conta corrente...");
+                ccSemLimite.Sacar(51);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(string.Format("Saldo da conta corrente: {0}", ccSemLimite.ObterSaldo().ToString("N2")));
+            }
+            
+
+            Console.WriteLine("-------------------");
+
+            Console.WriteLine("-------------------");
+            Console.WriteLine("Conta corrente com limite");
+            var ccComLimite = new ContaCorrente(DateTime.Now, 0);
+
+            Console.WriteLine("Depositando 100,00 na conta corrente...");
+            ccComLimite.Depositar(100);
+            Console.WriteLine(string.Format("Saldo da conta corrente antes do limite: {0}", ccComLimite.ObterSaldo().ToString("N2")));
 
             Console.WriteLine("Definindo limite de 50,00 na conta corrente...");
-            contaCorrente.DefinirLimite(50);
-            Console.WriteLine(string.Format("Saldo da conta corrente depois do limite: {0}", contaCorrente.ObterSaldo().ToString("N2")));
+            ccComLimite.DefinirLimite(50);
+            Console.WriteLine(string.Format("Saldo da conta corrente depois do limite: {0}", ccComLimite.ObterSaldo().ToString("N2")));
 
             Console.WriteLine("Tentando sacar 101,00 da conta corrente...");
-            contaCorrente.Sacar(101);
-            Console.WriteLine(string.Format("Saldo da conta corrente depois do saque: {0}", contaCorrente.ObterSaldo().ToString("N2")));
+            ccComLimite.Sacar(101);
+            Console.WriteLine(string.Format("Saldo da conta corrente depois do saque: {0}", ccComLimite.ObterSaldo().ToString("N2")));
             Console.WriteLine("-------------------");
         }
 
